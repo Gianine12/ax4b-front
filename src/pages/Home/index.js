@@ -6,6 +6,7 @@ import { Table } from '../../components/UsuarioLista/style'
 import { Labels, Form, DivInline, Winner } from './style';
 import Swal from 'sweetalert2'
 import { Rating } from '@mui/material';
+import api from '../../service/api';
 
 const Home = () => {
   const [rest, setRest] = useState([]);
@@ -28,7 +29,7 @@ const Home = () => {
   }
 
   const getVotacao = async() => {
-    axios.get('http://localhost:8080/api/ranking')
+    api.get('/ranking')
     .then((result) => {
       let temp = result.data.sort(compare).reverse();
       console.log(temp)
@@ -44,7 +45,7 @@ const Home = () => {
   },[])
 
   const getRest = async() => {
-    axios.get('http://localhost:8080/api/restaurantes')
+    api.get('restaurantes')
     .then((result) => {
       setRest(result.data);
     })
@@ -60,7 +61,7 @@ const Home = () => {
       restaurante_id: voto
     }
 
-    axios.post('http://localhost:8080/api/restaurante_votado', obj)
+    api.post('restaurante_votado', obj)
     .then((response) => {
       Swal.fire({
         icon: response.data.icon,

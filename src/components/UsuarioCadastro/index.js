@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Button, Formulario, Input, Principal } from "../../styles/global";
 import Swal from "sweetalert2";
+import api from "../../service/api";
 
 const UsuarioCadastro = () => {
 
@@ -14,7 +15,7 @@ const UsuarioCadastro = () => {
 
   const handlerForm = async(e) => {
     // e.preventDefault()
-    axios.post("http://localhost:8080/api/usuario/create", value).
+    api.post("usuario/create", value).
     then((response) => {
       Swal.fire({
         icon: response.data.icon,

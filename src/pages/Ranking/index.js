@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import { Table } from "../../components/UsuarioLista/style";
 import { Rating } from "@mui/material";
+import api from "../../service/api";
 
 const Ranking = () => {
   const [ranking, setRanking] = useState([]);
@@ -16,7 +17,7 @@ const Ranking = () => {
   }
 
   const getVotacao = async() => {
-    axios.get('http://localhost:8080/api/ranking')
+    api.get('ranking')
     .then((result) => {
       let temp = result.data.sort(compare).reverse()
       setRanking(temp);

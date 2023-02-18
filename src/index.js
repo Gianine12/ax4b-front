@@ -8,7 +8,6 @@ import App from './App';
 import NotFound from './pages/NotFound';
 import Restaurantes from './pages/Restaurante';
 import Ranking from './pages/Ranking';
-import Vencedor from './pages/Vencedor';
 import Votacao from './pages/Votacao';
 import Home from './pages/Home';
 import Usuario from './pages/Usuario';
@@ -23,7 +22,6 @@ root.render(
         <Route path='/restaurante' element={<Restaurantes/>}/>
         <Route path='/votacao' element={<Votacao/>}/>
         <Route path='/ranking' element={<Ranking/>}/>
-        <Route path='/vencedor' element={<Vencedor/>}/>
         <Route path='/usuario' element={<Usuario/>}/>
         <Route element={<NotFound/>}/>
       </Routes>

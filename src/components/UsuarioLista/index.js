@@ -1,14 +1,13 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import NavBar from '../../components/NavBar';
 import { Table } from './style';
-import { Principal } from '../../styles/global';
+import api from '../../service/api';
 
 const UsuarioLista = () => {
   const [user,setUser] = useState([]);
 
   const getUsers = async() =>{
-    axios.get('http://localhost:8080/api/usuarios')
+    api.get('http://localhost:8080/api/usuarios')
     .then((result) => {
       setUser(result.data);
     })

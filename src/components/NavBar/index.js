@@ -17,9 +17,6 @@ const NavBar = () => {
           <Link to='/restaurante'>Restaurantes</Link>
         </div>
         <div>
-          <Link to='/vencedor'>Vencedor</Link>
-        </div>
-        <div>
           <Link to='/ranking'>Ranking</Link>
         </div>
       </div>

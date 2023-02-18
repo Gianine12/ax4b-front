@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table } from '../UsuarioLista/style';
 import { Rating } from '@mui/material';
+import api from '../../service/api';
 
 const RestauranteLista = () => {
   const [rest, setRest] = useState([])
 
   const getRest = async() => {
-    axios.get('http://localhost:8080/api/restaurantes')
+    api.get('restaurantes')
     .then((result) => {
       console.log(result)
       setRest(result.data);

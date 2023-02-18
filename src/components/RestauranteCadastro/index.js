@@ -4,6 +4,7 @@ import { Button, Formulario, Input, Principal } from "../../styles/global";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { Rating } from "@mui/material";
+import api from '../../service/api';
 
 const RestauranteCadastro = () => {
   const [ value, setValue] = useState({});
@@ -12,9 +13,9 @@ const RestauranteCadastro = () => {
     setValue(old => ({...old, [event.target.name]: event.target.value}))
     console.log(value)
   };
-
+  
   const handlerForm = (data) => {
-    axios.post("http://localhost:8080/api/restaurante/create",value)
+    api.post(`restaurante/create`,value)
     .then((response) => {
       Swal.fire({
         icon: response.data.icon,
